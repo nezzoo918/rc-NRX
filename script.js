@@ -1,32 +1,58 @@
-// bn3mel simulation l-arkam el-sebata 3ashan n7ess enaha live
-function updateTelemetry() {
-    const speedElement = document.getElementById('speed-val');
-    const tempElement = document.getElementById('temp-val');
+// Data el-championship 3ashan ykon real
+const teams = [
+    { pos: 1, name: "Ferrari", pts: 442 },
+    { pos: 2, name: "Red Bull Racing", pts: 420 },
+    { pos: 3, name: "McLaren", pts: 410 },
+    { pos: 4, name: "Mercedes", pts: 380 }
+];
 
-    // ay arkam random kda 3ashan el-shakl yeb2a "real"
-    setInterval(() => {
-        // speed bey8ayar bin 280 w 320
-        let randomSpeed = Math.floor(Math.random() * (320 - 280 + 1)) + 280;
-        speedElement.innerText = randomSpeed;
-
-        // temp bey8ayar 7agat basita
-        let randomTemp = (95 + Math.random() * 5).toFixed(1);
-        tempElement.innerText = randomTemp;
-    }, 1000); // kol sanya el-arkam tt8ayar
+// 1. function n-load beha el-leaderboard
+function loadLeaderboard() {
+    const tableBody = document.getElementById('leaderboard-body');
+    tableBody.innerHTML = teams.map(team => `
+        <tr class="${team.name === 'Ferrari' ? 'highlight' : ''}">
+            <td>${team.pos}</td>
+            <td>${team.name}</td>
+            <td>${team.pts}</td>
+        </tr>
+    `).join('');
 }
 
-// nsha8al el-function awel ma el-saf7a t-load
-window.onload = () => {
-    console.log("System Online... Race mode active."); // msg fe el-console 
-    updateTelemetry();
-};
+// 2. Countdown timer l el-sebata el-gaya
+function startCountdown() {
+    const countdownElement = document.getElementById('race-countdown');
+    // hn-set tareekh l-seba2 kman 5 ayam masalan
+    let raceDate = new Date().getTime() + (5 * 24 * 60 * 60 * 1000);
 
-// logic scroll basita 3ashan el-nav yeb2a shaklo a7la
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.background = '#050a14';
-    } else {
-        header.style.background = 'transparent';
-    }
-});
+    setInterval(() => {
+        let now = new Date().getTime();
+        let diff = raceDate - now;
+
+        let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        let secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        countdownElement.innerText = `NEXT RACE: ${days}d ${hours}h ${mins}m ${secs}s`;
+    }, 1000);
+}
+
+// 3. Animation basita l el-quali progress bar
+function animateQuali() {
+    const bar = document.querySelector('.progress-fill');
+    let width = 0;
+    setInterval(() => {
+        if (width >= 100) width = 0;
+        width += 0.5;
+        bar.style.width = width + '%';
+        bar.style.background = `rgba(239, 26, 45, ${width/100})`;
+    }, 50);
+}
+
+// nsha8al kollo lma el-window t-load
+window.onload = () => {
+    loadLeaderboard();
+    startCountdown();
+    animateQuali();
+    console.log("Scuderia Ferrari Systems: Active"); // l el-engineers
+};
