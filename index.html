@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Racing | Elite Performance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- el-header elly feeh el-logo w el-navigation -->
+    <header>
+        <nav>
+            <div class="logo">NOVA<span>RACING</span></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#drivers">Drivers</a></li>
+                <li><a href="#stats">Live Stats</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- el-hero section bta3et awel saf7a -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>BEYOND VELOCITY</h1>
+            <p>Pushing the limits of engineering and adrenaline.</p>
+            <button class="cta">Explore the Garage</button>
+        </div>
+    </section>
+
+    <!-- section el-drivers -->
+    <section id="drivers" class="drivers">
+        <h2>The Grid</h2>
+        <div class="driver-grid">
+            <div class="driver-card">
+                <div class="driver-img"></div>
+                <h3>Alex "Vortex" Vance</h3>
+                <p>Lead Driver - Car #07</p>
+            </div>
+            <div class="driver-card">
+                <div class="driver-img"></div>
+                <h3>Sarah "Shift" Stone</h3>
+                <p>Tactical Lead - Car #12</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- el-stats section elly hatsht8al bel JS -->
+    <section id="stats" class="stats-panel">
+        <h2>Live Telemetry</h2>
+        <div class="telemetry-container">
+            <div class="stat-box">
+                <p>Top Speed</p>
+                <span id="speed-val">0</span> KM/H
+            </div>
+            <div class="stat-box">
+                <p>Engine Temp</p>
+                <span id="temp-val">90</span>°C
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
