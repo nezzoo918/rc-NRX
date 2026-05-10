@@ -1,0 +1,115 @@
+/* Styling modern w aggressive */
+:root {
+    --primary: #FF002E; /* Red el-sebata */
+    --bg: #050505;
+    --card-bg: #0F0F0F;
+    --text-dim: #888;
+    --accent: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg);
+    color: var(--accent);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { width: 85%; margin: auto; }
+
+/* Navbar logic */
+header {
+    padding: 30px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(5,5,5,0.8), transparent);
+    transition: 0.4s;
+}
+
+nav { display: flex; justify-content: space-between; align-items: center; }
+
+.logo { font-family: 'Syncopate', sans-serif; font-weight: 700; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 40px; }
+.nav-links a { 
+    text-decoration: none; color: var(--text-dim); 
+    font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+    transition: 0.3s;
+}
+.nav-links a:hover { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('https://images.unsplash.com/photo-1502911634037-33230c149021?q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 4.5rem;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.hero-btns { margin-top: 30px; }
+.btn-primary { 
+    padding: 15px 35px; background: var(--primary); border: none; 
+    color: white; font-weight: 700; cursor: pointer; margin-right: 15px;
+}
+.btn-outline {
+    padding: 15px 35px; background: transparent; border: 2px solid white;
+    color: white; font-weight: 700; cursor: pointer;
+}
+
+/* Sections Global */
+.section-header { margin-bottom: 50px; }
+.section-header span { color: var(--primary); font-weight: 700; font-size: 0.8rem; }
+.section-header h2 { font-family: 'Syncopate', sans-serif; font-size: 2rem; margin-top: 10px; }
+
+/* Garage Specs */
+.car-display { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
+.spec-card {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--primary);
+}
+.spec-card label { font-size: 0.7rem; color: var(--text-dim); }
+.spec-card p { font-weight: 700; font-size: 1.2rem; }
+
+.car-image-container img { width: 100%; filter: grayscale(100%) contrast(1.2); transition: 0.5s; }
+.car-image-container img:hover { filter: grayscale(0%); }
+
+/* Team Section */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.member-card { background: var(--card-bg); padding: 20px; text-align: center; }
+.member-img { height: 400px; background: #222; margin-bottom: 20px; }
+
+/* Status dot */
+.dot {
+    height: 8px; width: 8px; background: var(--primary);
+    border-radius: 50%; display: inline-block; margin-right: 5px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; }
+}
+
+/* responsive l el-mobile */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .car-display { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+}
