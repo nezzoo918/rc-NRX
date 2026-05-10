@@ -1,141 +1,95 @@
-/* reset l el-margin w el-padding 3ashan nbd2 ndif */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root {
+    --ferrari-red: #EF1A2D;
+    --carbon: #111111;
+    --yellow: #FFEB00;
 }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: #050a14; /* lon kohl dark awy */
+    background-color: #0a0a0a;
     color: white;
-    overflow-x: hidden;
+    font-family: 'Orbitron', sans-serif; /* momken t-import fonts law 3ayez */
 }
 
+/* Navbar styling */
 header {
-    padding: 20px 50px;
-    background: rgba(5, 10, 20, 0.9);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    border-bottom: 1px solid #1a2a44;
+    background: var(--carbon);
+    padding: 15px 5%;
+    border-bottom: 3px solid var(--ferrari-red);
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-nav {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: 2px;
+.brand { font-size: 1.8rem; font-weight: 900; }
+.brand span { color: var(--ferrari-red); }
+
+#race-countdown {
+    color: var(--yellow);
+    font-family: monospace;
+    font-size: 1.2rem;
+    background: #222;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
 
-.logo span {
-    color: #0044ff; /* el-lo2lo2y el-azra2 */
-}
-
-nav ul {
+/* Hero Section */
+.hero-f1 {
+    height: 80vh;
+    background: url('https://images.unsplash.com/photo-1596272382101-f2f986427382?q=80&w=1974') center/cover;
     display: flex;
-    list-style: none;
+    align-items: flex-end;
 }
 
-nav ul li {
-    margin-left: 30px;
+.hero-overlay {
+    padding: 60px;
+    background: linear-gradient(transparent, black);
+    width: 100%;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: 0.3s;
+/* Table styling l el-leaderboard */
+.f1-table {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    background: #151515;
 }
 
-nav ul li a:hover {
-    color: #0044ff;
+.f1-table th, .f1-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
 }
 
-/* styling el-hero section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=2070');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+.f1-table tr:hover { background: #1e1e1e; }
+.highlight { color: var(--ferrari-red); font-weight: bold; }
 
-.hero h1 {
-    font-size: 5rem;
-    letter-spacing: 10px;
-    margin-bottom: 10px;
-}
-
-.cta {
-    padding: 15px 40px;
-    background: #0044ff;
-    border: none;
-    color: white;
-    font-weight: bold;
-    margin-top: 20px;
-    cursor: pointer;
-    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%); /* shakl racing shwaya */
-}
-
-/* driver cards styling */
-.drivers {
-    padding: 100px 50px;
-    text-align: center;
-}
-
-.driver-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.driver-card {
-    background: #0d1626;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #1a2a44;
-    width: 300px;
-}
-
-.driver-img {
-    height: 350px;
-    background: #1a2a44;
-    margin-bottom: 15px;
-}
-
-/* telemetry panel */
-.stats-panel {
+/* Grid cards */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 50px;
-    background: #000;
-    text-align: center;
 }
 
-.telemetry-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.stat-box {
+.card {
+    background: #1a1a1a;
     padding: 30px;
-    border: 2px solid #0044ff;
-    min-width: 200px;
+    border-left: 5px solid var(--ferrari-red);
+    position: relative;
 }
 
-.stat-box span {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #0044ff;
+.tag {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--ferrari-red);
+    font-size: 0.7rem;
+    padding: 5px 10px;
 }
