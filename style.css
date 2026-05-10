@@ -1,0 +1,96 @@
+/* kohl w Rosso Corsa w Italy Flag Colors */
+:root {
+    --italy-green: #008C45;
+    --italy-white: #F4F5F0;
+    --italy-red: #CD212A;
+    --deep-black: #050505;
+    --gold: #D4AF37;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { background: var(--deep-black); color: white; overflow-x: hidden; }
+
+/* el-3alam el-italy elly fo2 el-navbar */
+.top-flag-bar {
+    height: 4px;
+    background: linear-gradient(to right, var(--italy-green) 33.3%, var(--italy-white) 33.3%, var(--italy-white) 66.6%, var(--italy-red) 66.6%);
+}
+
+header {
+    background: rgba(0,0,0,0.95);
+    padding: 20px 10%;
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -1px; }
+.logo span { color: var(--italy-red); }
+.nav-links a { color: #888; text-decoration: none; margin-left: 25px; transition: 0.3s; font-size: 0.9rem; }
+.nav-links a:hover { color: white; }
+
+/* Hero w el-3alam elly warah */
+.hero {
+    height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.flag-bg {
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    display: flex;
+    transform: rotate(-15deg); /* shakl dynamic shwaya */
+    filter: blur(80px); /* 3ashan yeb2a background mesh fagesh */
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.flag-bg div { flex: 1; height: 100%; }
+.flag-bg .green { background: var(--italy-green); }
+.flag-bg .white { background: var(--italy-white); }
+.flag-bg .red { background: var(--italy-red); }
+
+.hero-content { text-align: center; }
+.hero-content h1 { font-size: 6rem; letter-spacing: -2px; line-height: 1; }
+.pr-badge { 
+    margin-top: 20px; 
+    border: 1px solid var(--gold); 
+    color: var(--gold); 
+    display: inline-block; 
+    padding: 5px 15px; 
+    font-size: 0.8rem;
+}
+
+/* Standings */
+.container { padding: 80px 10%; }
+.section-title { margin-bottom: 40px; font-size: 1.2rem; color: #555; letter-spacing: 3px; }
+
+.f1-table { width: 100%; border-collapse: collapse; }
+.f1-table th { color: #555; text-align: left; padding: 15px; font-size: 0.8rem; border-bottom: 1px solid #222; }
+.f1-table td { padding: 20px 15px; border-bottom: 1px solid #111; }
+.highlight { color: var(--italy-red); font-weight: bold; }
+
+/* PR Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.card { background: #0f0f0f; padding: 40px; border: 1px solid #1a1a1a; }
+.label { font-size: 0.7rem; color: var(--italy-red); font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
+
+/* Countdown bar */
+.countdown-bar {
+    background: var(--italy-red);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
